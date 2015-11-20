@@ -1,13 +1,9 @@
 <?php
-class BlogEntry
+class Blog
 {
-	private $text, $created, $userid, $title, $comments;
+	private $created, $userid, $title, $blogentries;
 	
-	public function setText($text){
-		$this->text = $text;
-	}
-	public function getText(){
-		return $this->text;
+
 	}
 
 	public function setCreated($created){
@@ -30,9 +26,10 @@ class BlogEntry
 	public function getTitle(){
 		return $this->title;
 
-	public function setComments($comments){
-		$this->comments = $comments;
+	public function setBlogentries($blogentries){
+		$this->blogentries = $blogentries;
 	}
-	public function getComments(){
-		return $comments->comments;
+	public function getBlogentries(){
+		return $blogentries->blogentries;
+	}
 ?>

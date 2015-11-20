@@ -1,7 +1,7 @@
 <?php
-class BlogEntry
+class Comment
 {
-	private $text, $created, $userid, $title, $comments;
+	private $text, $created, $userid, $title;
 	
 	public function setText($text){
 		$this->text = $text;
@@ -29,10 +29,6 @@ class BlogEntry
 	}
 	public function getTitle(){
 		return $this->title;
-
-	public function setComments($comments){
-		$this->comments = $comments;
 	}
-	public function getComments(){
-		return $comments->comments;
+
 ?>
