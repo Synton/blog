@@ -1,70 +1,54 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8" >
-    <link rel="stylesheet" type="text/css" href="static/styles.css">
-    <title>BLOG Registration</title>
-    
-    
-    <!-- Hier kommen die JavaScript Funktionen hin -->
-    <script type="text/javascript">
-    
-    function validateForm() {
-        
-		// Damit das Testen einfacher ist, werden zu Beginn die Einschränkung
-		// für das Passwort nicht durchgesetzt.
-    
-	    return true;		// das formular kann abgeschickt werden
-    }
-    
-    </script>
-</head>
+<?php
+include("core/user.php");
+$user = new User();
+$user->setUsername($_POST["txtMail"]);
+$user->setPassword($_POST["txtPasswort"]);
+$user->setFirstname($_POST["txtVorname"]);
+$user->setLastname($_POST["txtName"]);
+$user->setStreet($_POST["txtStrasse"]);
+$user->setCity($_POST["txtPLZOrt"]);
 
-<!-- here comes the body -->
-<body>
-    <h1 align="center">Registration</h1>
-    
-    <div align="center">
-    
-        <form action="blogRegistration.php" method="post" name="formRegistration">
-            <table align="center" id="rcorners">
-                <tr>
-                    <td>Benutzername</td>
-                    <td><input type="email" name="txtMail" id="mail" required/></td>
-                </tr>
-                <tr>
-                    <td>Passwort</td>
-                    <td><input type="password" name="txtPasswort" id="password" required/></td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td><input type="text" name="txtName" id="name" required/></td>
-                </tr>
-                <tr>
-                    <td>Vorname</td>
-                    <td><input type="text" name="txtVorname" id="firstname" required/></td>
-                </tr>
-                <tr>
-                    <td>Strasse Nummer</td>
-                    <td><input type="text" name="txtStrasse" id="street"/></td>
-                </tr>
-                <tr>
-                    <td>PLZ Ort</td>
-                    <td><input type="text" name="txtPLZOrt" id="zipPlace" required/></td>
-                </tr>
-                <tr>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                    	<input type="reset" value="Reset"/>
-                    	<input id="submit" type="submit" value="Abschicken" onClick="validateForm()"/>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    
-    </div>
-    
-</body>
-</html>
+$ser_user = serialize($user);
+$user_data = 'data/user.txt';
+$userFile = fopen($user_data, "a+") or die("save: unable to open File");
+
+// in die geöffnete Datei schreiben
+fwrite($userFile, $ser_user . "\r\n") or die("save: unable to write file");
+
+// die geöffnete Datei schliessen. Schreibt den Buffer in die Datei
+fclose($userFile) or die("save: error closing file " . $user_data);
+
+$userFile = fopen($user_data, "r");
+
+$user_arr = array();
+
+
+while(!feof($userFile)){
+    $line = fgets($userFile);
+    # do same stuff with the $line
+
+    $user_obj = unserialize($line);
+    if ($user_obj){ 
+        $user_arr[] = $user_obj;
+    }
+}
+echo "<table>";
+echo "<thead><tr>";
+echo "<td>Username</td><td>Password</td><td>Firstname</td><td>Lastname</td><td>Street</td><td>City</td>";
+echo "</tr></thead>";
+echo "<tbody>";
+
+foreach ($user_arr as $object) {
+    echo "<tr>";
+    echo "<td>" . $object->getUsername() . "</td>";
+    echo "<td>" . $object->getPassword() . "</td>";
+    echo "<td>" . $object->getFirstname() . "</td>";
+    echo "<td>" . $object->getLastname() . "</td>";
+    echo "<td>" . $object->getStreet() . "</td>";
+    echo "<td>" . $object->getCity() . "</td>";
+    echo "</tr>";
+}
+echo "</tbody>";
+
+fclose($userFile);
+?>
