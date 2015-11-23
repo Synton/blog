@@ -2,6 +2,7 @@
 <html>
     <link rel="stylesheet" href="static/styles.css">
     <head>
+        <title>Marc's Blog</title>
     </head>
     <body>
 
@@ -15,15 +16,7 @@
             <a href="login.php">Abmelden</a>
         </nav>
         <section id="content">
-            <h2>Blog</h2>
-            <p>
-                London is the capital city of England. It is the most populous city in the United Kingdom,
-                with a metropolitan area of over 13 million inhabitants.
-            </p>
-            <p>
-                Standing on the River Thames, London has been a major settlement for two millennia,
-                its history going back to its founding by the Romans, who named it Londinium.
-            </p>
+            <?php include($tmp_content); ?>
         </section>
         <footer>
             <span>   

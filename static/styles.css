@@ -1,7 +1,47 @@
 #rcorners {
     border-radius: 25px;
-    border: 2px solid #73AD21;
+    border: 2px solid #25198A;
     padding: 20px; 
     width: 400px;
     height: 150px;
 	}
+
+body {
+font-family: Helvetica;
+margin: 0;
+padding:0;
+}
+
+header {
+    background-color: rgb(37, 25, 138);
+    color:white;
+    text-align:center;
+    padding:1px;
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:150px;
+    float: right;
+    padding:5px;	      
+}
+
+h2 {
+  color: rgb(37, 25, 138);
+     
+}
+#content {
+    color: black;
+    width:350px;
+    padding:10px;
+    margin: auto;
+ 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;	 	 
+}
