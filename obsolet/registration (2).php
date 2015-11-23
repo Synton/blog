@@ -1,6 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <title>BLOG Registration</title>
+    
+    
+    <!-- Hier kommen die JavaScript Funktionen hin -->
+    <script type="text/javascript">
+    
+    function validateForm() {
+        
+		// Damit das Testen einfacher ist, werden zu Beginn die Einschränkung
+		// für das Passwort nicht durchgesetzt.
+    
+	    return true;		// das formular kann abgeschickt werden
+    }
+    
+    </script>
+</head>
 
+<!-- here comes the body -->
+<body>
+    <h1 align="center">Registration</h1>
+    
+    <div align="center">
+    
         <form action="registration.php" method="post" name="formRegistration">
-                  <h3> Registration </h3>
             <table align="center" id="rcorners">
                 <tr>
                     <td>Benutzername</td>

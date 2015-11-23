@@ -10,6 +10,11 @@
             <h1>Der Blog</h1>
         </header>
 
+        <nav>
+            Eigene Blogs<br />
+            Blog erstellten<br />
+            <a href="login.php">Abmelden</a>
+        </nav>
         <section id="content">
             <?php include($tmp_content); ?>
         </section>

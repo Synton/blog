@@ -1,6 +1,7 @@
-
-	<form action="main.php" method="post" name="formLogin"> 
+  
+  <form action="main.php" method="post" name="formLogin"> 
     <table align="center" id="rcorners">
+      <h3> Login </h3>
       <tbody>
         <tr> 
           <td>Benutzername</td> 
@@ -16,7 +17,7 @@
 
         <tr> 
           <td colspan="2" align="center"> <input type="reset" value="Reset" /> <input id="submit" onclick="checkFields()" type="submit" value="Abschicken" /> 
-            <br><br><a href="registration.html.php">Registrieren</a></td> 
+            <br><br><a href="registration.php">Registrieren</a></td> 
         </tr> 
       </tbody>
     </table> </form> 

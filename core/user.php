@@ -2,6 +2,9 @@
 class User
 {
 	private $username, $password, $firstname, $lastname, $street, $city;
+	
+
+
 	public function setUsername($name){
 		$this->username = $name;
 	}
@@ -43,7 +46,6 @@ class User
 	public function getCity(){
 		return $this->city;
 	}	
-
 
 }
 ?>
