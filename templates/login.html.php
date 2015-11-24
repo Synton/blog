@@ -16,7 +16,7 @@
         </tr> 
 
         <tr> 
-          <td colspan="2" align="center"> <input type="reset" value="Reset" /> <input id="submit" onclick="checkFields()" type="submit" value="Abschicken" /> 
+          <td colspan="2" align="center"> <input type="reset" value="Reset" /> <input id="submit" onclick="checkFields()" type="submit" value="Anmelden" /> 
             <br><br><a href="registration.php">Registrieren</a></td> 
         </tr> 
       </tbody>

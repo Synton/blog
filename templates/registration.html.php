@@ -32,7 +32,7 @@
                 <tr>
                     <td colspan="2" align="center">
                     	<input type="reset" value="Reset"/>
-                    	<input id="submit" type="submit" value="Abschicken" onClick="validateForm()"
+                    	<input id="submit" type="submit" value="Registrieren" onClick="validateForm()"
                         />
 
                         <br><br><a href="login.php">Anmelden</a>
