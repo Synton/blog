@@ -25,7 +25,7 @@ class Comment
 	}
 
 	public function setTitle($newtitle){
-		$this->title = $newuserid;
+		$this->title = $newtitle;
 	}
 	public function getTitle(){
 		return $this->title;

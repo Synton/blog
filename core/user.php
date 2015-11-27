@@ -47,9 +47,13 @@ class User
 	public function getCity(){
 		return $this->city;
 	}
-
 	
-
+	public function setBlog($newblog){
+			$this->blog = $newblog;
+	}
+	public function getBlog(){
+		return $this->blog;
+	}
 
 }
 ?>

@@ -25,14 +25,17 @@ class BlogEntry
 	}
 
 	public function setTitle($newtitle){
-		$this->title = $newuserid;
+		$this->title = $newtitle;
 	}
 	public function getTitle(){
 		return $this->title;
+	}
 
 	public function setComments($newcomments){
 		$this->comments = $newcomments;
 	}
 	public function getComments(){
 		return $comments->comments;
+	}
+}
 ?>

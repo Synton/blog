@@ -1,10 +1,9 @@
 <?php
 class Blog
 {
-	private $created, $userid, $title, $blogentries;
+	private $created, $userid, $title;
+	private $blogentries = array();
 	
-
-	}
 
 	public function setCreated($newcreated){
 		$this->created = $newcreated;
@@ -21,15 +20,19 @@ class Blog
 	}
 
 	public function setTitle($newtitle){
-		$this->title = $newuserid;
+		$this->title = $newtitle;
 	}
 	public function getTitle(){
 		return $this->title;
+	}
+	public function addBlogentry($newblogentries){
+		$this->blogentries[] = $newblogentries;
+	}
+	public function getAllBlogentries(){
+		return $this->blogentries;
+	}
 
-	public function setBlogentries($newblogentries){
-		$this->blogentries = $newblogentries;
-	}
-	public function getBlogentries(){
-		return $blogentries->blogentries;
-	}
+}
+
+
 ?>

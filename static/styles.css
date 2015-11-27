@@ -3,7 +3,7 @@
     border: 2px solid #25198A;
     padding: 20px; 
     width: 400px;
-    height: 150px;
+    height: auto;
 	}
 
 body {
@@ -29,6 +29,8 @@ nav {
 
 h2 {
   color: rgb(37, 25, 138);
+
+  float: top;
      
 }
 #content {
@@ -44,4 +46,11 @@ footer {
     position: absolute;
     bottom: 0px;
     width: 100%;	 	 
+}
+
+.font_9 {
+    font: normal normal normal 12px/1.4em 'open sans',sans-serif;
+    color: #4A4848;
+    float: right;
+    bottom: auto;
 }
