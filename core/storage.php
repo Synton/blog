@@ -28,5 +28,12 @@ class Storage
 	public function loadStorage($file){
 		$this->user = unserialize(file_get_contents($file));
 	}
+
+		public function getBlogByIndex($index){
+			return $this->getAllBlogs()[$index];
+
+
+
+		}
 }	
 ?>

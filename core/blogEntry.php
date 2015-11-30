@@ -3,6 +3,10 @@ class BlogEntry
 {
 	private $text, $created, $userid, $title, $comments;
 	
+	public function getAll(){
+			 $this->text;
+	}
+
 	public function setText($newtext){
 		$this->text = $newtext;
 	}

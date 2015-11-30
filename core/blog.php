@@ -32,6 +32,14 @@ class Blog
 		return $this->blogentries;
 	}
 
+
+		
+
+
+
+
+
+
 }
 
 

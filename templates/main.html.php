@@ -1,7 +1,7 @@
 <div align="center" id="rcorners">
     <section id="content">
         <h2>Blog</h2>
-        <?php foreach($blogs as $blog) { ?>
+        <?php foreach($tmp_blogs as $blog) { ?>
             <article>
                 <?php
                     foreach ($blog->getAllBlogentries() as $blogentry){
@@ -25,6 +25,10 @@
                      ?>
             </article>
         <?php } ?>
+
+
+<form><textarea></textarea> </form>
+
     </section>
 </div>
 <footer>
