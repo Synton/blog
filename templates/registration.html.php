@@ -1,29 +1,29 @@
 
-        <form action="registration.php" method="post" name="formRegistration">
+        <form action="createuser.php" method="post" name="formRegistration">
                   <h3> Registration </h3>
             <table align="center" id="rcorners">
                 <tr>
-                    <td>Benutzername</td>
-                    <td><input type="email" name="txtMail" id="mail" required/></td>
+                    <td>Benutzername:</td>
+                    <td><input type="text" name="txtUser" id="txtuser" required/></td>
                 </tr>
                 <tr>
-                    <td>Passwort</td>
-                    <td><input type="password" name="txtPasswort" id="password" required/></td>
+                    <td>Passwort:</td>
+                    <td><input type="password" name="txtPassword" id="txtPassword" required/></td>
                 </tr>
                 <tr>
-                    <td>Name</td>
-                    <td><input type="text" name="txtName" id="name" required/></td>
+                    <td>Name:</td>
+                    <td><input type="text" name="txtNachname" id="name" required/></td>
                 </tr>
                 <tr>
-                    <td>Vorname</td>
+                    <td>Vorname:</td>
                     <td><input type="text" name="txtVorname" id="firstname" required/></td>
                 </tr>
                 <tr>
-                    <td>Strasse Nummer</td>
+                    <td>Strasse Nummer:</td>
                     <td><input type="text" name="txtStrasse" id="street"/></td>
                 </tr>
                 <tr>
-                    <td>PLZ Ort</td>
+                    <td>PLZ Ort:</td>
                     <td><input type="text" name="txtPLZOrt" id="zipPlace" required/></td>
                 </tr>
                 <tr>

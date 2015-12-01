@@ -5,11 +5,11 @@
       <tbody>
         <tr> 
           <td>Benutzername</td> 
-          <td><input name="txtMail" id="mail" required="" type="email" /></td> 
+          <td><input name="txtUser" id="txtUser" required="" type="text" /></td> 
         </tr> 
         <tr> 
           <td>Passwort</td> 
-          <td><input name="txtPasswort" id="password" required="" type="password" /></td> 
+          <td><input name="txtPassword" id="txtPassword" required="" type="password" /></td> 
         </tr> 
         <tr> 
           <td colspan="2">&nbsp;</td> 
@@ -37,5 +37,6 @@
 
 
 
-</div> </body>
+</div> 
+</body>
 </html>

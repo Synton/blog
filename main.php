@@ -7,7 +7,7 @@ include('core/blogEntry.php');
 
 
 $storage = new Storage();
-$user = new User();
+/**$user = new User();
 $user2 = new User();
 $blog = new Blog();
 $blog2 = new Blog();
@@ -22,7 +22,6 @@ date_default_timezone_set("Europe/Berlin");
 
 $blogentry->setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse magna libero, varius ac elit non, iaculis viverra sem. Morbi lectus nunc, pulvinar sit amet eros vel, condimentum tincidunt arcu. Fusce posuere placerat eros, nec posuere mauris faucibus vitae. Nulla in ipsum lacus. Integer accumsan nibh vel nisi tincidunt, vestibulum facilisis dui auctor. In condimentum nec purus eget elementum. Aenean finibus vestibulum enim, non tristique nibh congue tincidunt. Mauris sagittis ut erat quis dapibus. In ac dignissim mauris, non dapibus libero. Nam auctor augue sit amet magna auctor porttitor. Quisque vitae semper velit. Etiam congue non metus quis interdum. Mauris venenatis.");
 $blogentry->setCreated($datum);
-	
 	
 
 
@@ -86,10 +85,19 @@ $storage->addUser($user2);
 
 
 
-$storage->saveStorage('data/storage.txt');
+$storage->saveStorage('data/storage.txt');*/
+$storage->loadStorage('data/storage.txt');
 
+if (array_key_exists("textarea_blogentry", $_POST)) {
+	$blogentry3 = new BlogEntry();
+	$blogentry3->setText($_POST["textarea_blogentry"]);
+	$timestamp = time();
+	$datum = date("d.m.Y",$timestamp);
+	$blogentry3->setCreated($datum);
+	$blog2->addBlogentry($blogentry3);
 
-
+}
+print_r($_POST);
 
 //$storage = new Storage();
 //$storage->loadStorage('data/storage.txt');
@@ -103,9 +111,12 @@ else{
 	$blogs = $storage->getAllBlogs();
 }
 
+
+
 $tmp_blogs = $blogs;
 $tmp_content = 'templates/main.html.php';	
 include('templates/layout.nav.html.php');
+
 
 
 

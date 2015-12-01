@@ -24,10 +24,25 @@
 
                      ?>
             </article>
+
+
         <?php } ?>
+    <br>
+    <br>
+    <br> 
 
+<form method="post" action="main.php" name="add_blogentry_form"> 
+    <input type="text" name="title" id="title" placeholder="Titel"/>
+    <br>
+    <br>    
 
-<form><textarea></textarea> </form>
+    <textarea name="textarea_blogentry"> </textarea> 
+    <input id="submit"  type="submit" value="Senden" />
+</form>
+<?php 
+
+?>
+
 
     </section>
 </div>

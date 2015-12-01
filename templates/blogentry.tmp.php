@@ -1,5 +1,5 @@
 
-
+<br>
 <h1> <?php echo $blogentry->getTitle(); ?> </h1>
 <p> <?php echo $blogentry->getText(); ?> </p>
 

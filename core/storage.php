@@ -29,11 +29,24 @@ class Storage
 		$this->user = unserialize(file_get_contents($file));
 	}
 
-		public function getBlogByIndex($index){
-			return $this->getAllBlogs()[$index];
+	public function getBlogByIndex($index){
+		return $this->getAllBlogs()[$index];
+	}
 
-
-
+	public function checkUsername($username){
+		if (count($this->user) == 0) {
+			return false;
+			
 		}
+		foreach ($this->user as $newusername) {
+			if ($newusername->getUsername() == $username){
+				echo ("Dieser Username ist bereits vergeben!");
+					return $newusername;
+
+			}
+		}
+		return false;
+	}
+
 }	
 ?>
