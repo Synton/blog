@@ -45,7 +45,7 @@ $user->setCity("Lyss");
 
 
 $blog->addBlogentry($blogentry);
-$user->setBlog($blog);
+$user->addBlog($blog);
 $storage->addUser($user);
 
 date_default_timezone_set("Europe/Berlin");
@@ -80,7 +80,7 @@ $user2->setCity("2222");
 
 $blog2->addBlogentry($blogentry22);
 $blog2->addBlogentry($blogentry2);
-$user2->setBlog($blog2);
+$user2->addBlog($blog2);
 $storage->addUser($user2);
 
 
@@ -97,7 +97,6 @@ if (array_key_exists("textarea_blogentry", $_POST)) {
 	$blog2->addBlogentry($blogentry3);
 
 }
-print_r($_POST);
 
 //$storage = new Storage();
 //$storage->loadStorage('data/storage.txt');

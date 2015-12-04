@@ -52,8 +52,21 @@ class User
 			$this->blog = $newblog;
 	}
 	public function getBlog(){
-		return $this->blog;
+		if (count($this->blog)){
+			return $this->blog[0];
+		}
+		return NULL;
+		
 	}
+
+	public function addBlog($addnewblog){
+		$this->blog[] = $addnewblog;
+	}
+
+	public function removeBlog(){
+		$this->blog = array();
+	}
+
 
 }
 ?>

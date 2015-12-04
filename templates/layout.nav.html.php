@@ -11,21 +11,25 @@
         </header>
 
         <nav>
-            Eigene Blogs<br />
-            <?php
-                include_once('core/storage.php');
-                $storage = new Storage();
-                $storage->loadStorage('data/storage.txt');
-                $index = 0;
-                foreach ( $storage->getAllBlogs() as $blog){
-                   echo " <a href='main.php?blog=".$index."'>".$blog->getTitle()."</a>";
-                  $index = $index +1;
-                   }
-            ?>
-
-
-            Blog erstellten<br />
-            <a href="login.php">Abmelden</a>
+            <ul>
+                <li>Eigene Blogs</li>
+                <?php
+                    include_once('core/storage.php');
+                    include_once('core/user.php');
+                    include_once('core/blog.php');
+                    $storage = new Storage();
+                    $storage->loadStorage('data/storage.txt');
+                    $index = 0;
+                   // print_r($storage->getAllBlogs());
+                    foreach ($storage->getAllBlogs() as $blog){
+                        //echo(gettype($blog));
+                       echo "<li><a href='main.php?blog=".$index."'>".$blog->getTitle()."</a></li>";
+                      $index = $index +1;
+                    }
+                ?>
+                <li><a href="createblog.php">Blog erstellen</a></li>
+                <li><a href="login.php">Abmelden</a></li>
+            </ul>
         </nav>
         <section id="content">
             <?php include($tmp_content); ?>

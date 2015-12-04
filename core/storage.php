@@ -14,7 +14,10 @@ class Storage
 	public function getAllBlogs(){
 		$blogs = array();
 		foreach ($this->user as $newuser){
-			$blogs[] = $newuser->getBlog();
+			$blog = $newuser->getBlog();
+			if ($blog){
+				$blogs[] = $blog;
+			}
 		}
 		return $blogs;		
 	}
@@ -40,7 +43,7 @@ class Storage
 		}
 		foreach ($this->user as $newusername) {
 			if ($newusername->getUsername() == $username){
-				echo ("Dieser Username ist bereits vergeben!");
+
 					return $newusername;
 
 			}

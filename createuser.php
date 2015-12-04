@@ -2,7 +2,7 @@
 
 include('core/storage.php');
 include('core/user.php');
-print_r($_REQUEST);
+
 $storage = new Storage();
 $storage->loadStorage('data/storage.txt');
 echo count($storage->getAllUsers());
@@ -20,7 +20,6 @@ if ($user4 == false) {
 	$storage->saveStorage('data/storage.txt');
 }
 
-echo "&nbsp";
-echo count($storage->getAllUsers());
+header('Location: login.php');
 
 ?>
