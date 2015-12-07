@@ -28,19 +28,20 @@ class Blog
 	public function addBlogentry($newblogentries){
 		$this->blogentries[] = $newblogentries;
 	}
+
+	
+
 	public function getAllBlogentries(){
+		usort($this->blogentries, "sortByDate");
 		return $this->blogentries;
 	}
-
-
-		
-
-
-
-
-
-
 }
 
+	function sortByDate($a, $b){
+		if ($a->getCreated() < $b->getCreated()) {
+			return 1;
+		}
+		return -1;
+	}
 
 ?>

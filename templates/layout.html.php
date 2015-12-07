@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="../static/styles.css" />
@@ -7,14 +8,14 @@
     <body>
 
         <header>
-            <h1>Der Blog</h1>
+            <h1>Der Blog </h1>
         </header>
 
         <section id="content">
             <?php include($tmp_content); ?>
         </section>
         <footer>
-            <span>   
+            <span>
                 Copyright Marc Eskandar
             </span>
        </footer>    

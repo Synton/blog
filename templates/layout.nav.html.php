@@ -1,3 +1,9 @@
+<?php 
+if(!isset($_SESSION))
+{
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="../static/styles.css" />
@@ -13,6 +19,7 @@
         <nav>
             <ul>
                 <li>Eigene Blogs</li>
+                 <li><a href="blogoverview.php">Alle Blogs</a></li>
                 <?php
                     include_once('core/storage.php');
                     include_once('core/user.php');
@@ -28,7 +35,7 @@
                     }
                 ?>
                 <li><a href="createblog.php">Blog erstellen</a></li>
-                <li><a href="login.php">Abmelden</a></li>
+                <li><a href="login.php?logout=true">Abmelden</a></li>
             </ul>
         </nav>
         <section id="content">

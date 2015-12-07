@@ -15,14 +15,7 @@
       <td>&nbsp;
       </td>
     </tr>
-    <tr>    
-      <td>
-        <label for="create">Text: </label>
-      </td>
-      <td>
-      <textarea id="text" name="text" cols="35" rows="4"></textarea>
-      </td>
-    </tr>
+   
     <tr>
       <td align="center" colspan="2">
         <input type="submit" value="Erstellen" />

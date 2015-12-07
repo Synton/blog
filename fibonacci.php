@@ -16,6 +16,6 @@ function fibonacci($länge){
 	}
 }
 
-fibonacci(50);
+fibonacci(2);
 
 ?>
