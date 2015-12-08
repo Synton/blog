@@ -32,6 +32,11 @@ class Storage
 		$this->user = unserialize(file_get_contents($file));
 	}
 
+	public function getIndexByObject($blog){
+		return array_search($blog, $this->getAllBlogs());
+	}
+
+
 	public function getBlogByIndex($index){
 		return $this->getAllBlogs()[$index];
 	}

@@ -9,10 +9,8 @@
                     $storage = new Storage();
                     $storage->loadStorage('data/storage.txt');
                     $index = 0;
-                   // print_r($storage->getAllBlogs());
                     foreach ($storage->getAllBlogs() as $blog){
-                        //echo(gettype($blog));
-                       echo "<tr><th><h1><a href='main.php?blog=".$index."'>".$blog->getTitle()."</a></h1></tr></th>";
+                      echo "<tr><th><h1><a href='main.php?blog=".$index."'>".$blog->getTitle()."</a></h1></tr></th>";
                       $index = $index +1;
                     }
                 ?>      

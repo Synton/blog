@@ -9,20 +9,21 @@ include_once('core/storage.php');
 include_once('core/user.php');
 $newstore = new Storage();
 session_start();
+$tmp_globalmessage = array();
 
 if (array_key_exists("txtUser", $_POST)) {
 	$newstore->loadStorage('data/storage.txt');
 	$validateuser = $newstore->checkUsername($_POST["txtUser"]);
 	if ($validateuser == false) {
-		echo ("User exsistiert nicht"); 
+		$tmp_globalmessage[] = "User exsistiert nicht"; 
 	}
 	else {
 		if ($validateuser->getPassword() == $_POST["txtPassword"]) {
 			$_SESSION['username'] = $validateuser->getUsername();
-			header('Location: main.php');
+			header('Location: main.php?overview=true');
 		}
 		else {
-			echo ("Passwort wurde falsch eingegeben");
+			$tmp_globalmessage[] = "Passwort wurde falsch eingegeben"; 
 		}
 	}
 }

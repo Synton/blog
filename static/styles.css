@@ -2,14 +2,23 @@
     border-radius: 25px;
     border: 2px solid #25198A;
     padding: 20px; 
-    width: 400px;
     height: auto;
+    width: 100%;
 	}
 
 body {
 font-family: Helvetica;
 margin: 0;
 padding:0;
+}
+
+a:visited, a:link, a:hover, a:active {
+  text-decoration: none;
+  color:#0000FF;
+}
+
+a:hover {
+   color:#5050FF;
 }
 
 header {
@@ -52,8 +61,12 @@ footer {
 .font_9 {
     font: normal normal normal 12px/1.4em 'open sans',sans-serif;
     color: #4A4848;
-    float: right;
-    bottom: auto;
+}
+
+input.font_9 {
+    border: 0;
+    background-color: transparent;
+    color:blue;
 }
 
 label {
@@ -69,4 +82,18 @@ textarea {
 
 td {
 vertical-align: top;    
+}
+
+#globalmessage{
+margin: auto;
+width: 400px;
+
+}
+
+#globalmessage p {
+background-color: #FB8888;
+border: solid 2px red;
+padding: 10px;
+font-size: 12px;
+font-weight: bold;
 }

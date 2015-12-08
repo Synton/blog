@@ -29,9 +29,21 @@ class Blog
 		$this->blogentries[] = $newblogentries;
 	}
 
+	public function removeBlogentryByIndex($index){
+		usort($this->blogentries, "sortByDate");
+		unset($this->blogentries[intval($index)]);
+		$this->blogentries = array_values($this->blogentries);
+	}
+
+	public function getBlogentryByIndex($index){
+		usort($this->blogentries, "sortByDate");
+		return $this->blogentries[intval($index)];
+
+	}
 	
 
 	public function getAllBlogentries(){
+
 		usort($this->blogentries, "sortByDate");
 		return $this->blogentries;
 	}

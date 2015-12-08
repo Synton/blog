@@ -15,37 +15,60 @@ if (isset($_SESSION['username'])){
 	
 	$storage->loadStorage('data/storage.txt');
 
-	if (array_key_exists("textarea_blogentry", $_POST)) {
+	if (array_key_exists("textarea_blogentry", $_POST) && array_key_exists("title", $_POST)) {
 		if (isset($_SESSION['username'])) {
-			$blogentry3 = new BlogEntry();
-			$blogentry3->setText($_POST["textarea_blogentry"]);
+			$blogentry = new BlogEntry();
+			$blogentry->setTitle($_POST["title"]);
+
+			$blogentry->setText($_POST["textarea_blogentry"]);
 			$timestamp = time();
-			$datum = date("d.m.Y G:i",$timestamp);
-			$blogentry3->setCreated($datum);
+			$datum = date("d.m.Y G:i:s",$timestamp);
+			$blogentry->setCreated($datum);
 			$user = $storage->checkUsername($_SESSION['username']);
 			if ($user) {
-				$blog2 = $user->getBlog();
-				$blog2->addBlogentry($blogentry3);
-				$storage->saveStorage('data/storage.txt');	
+				$blog = $user->getBlog();
+				$blog->addBlogentry($blogentry);
+				$storage->saveStorage('data/storage.txt');
+				header('Location: main.php?userblog=true');
 			}		
 		}
 	}
-
+	
 	if (array_key_exists("blog", $_GET)) {
 		$index = $_GET["blog"];
 		$blogs = array ($storage->getBlogByIndex($index)); 
-	 
+	 	
 	}
 
-	else{
-		$blogs = $storage->getAllBlogs();
+
+	if(array_key_exists("overview", $_GET) && $_GET['overview'] == true){
+		header('Location: blogoverview.php');	
 	}
-	if (isset($_SESSION['username'])) {
-		
+	if(array_key_exists("userblog", $_GET) && $_GET['userblog'] == true && isset($_SESSION['username'])){
+		$user = $storage->checkUsername($_SESSION['username']);
+		$blogs = array($user->getBlog());			
+	}
+	if(array_key_exists("deleteblogentry", $_GET) && isset($_SESSION['username'])){
+		$user = $storage->checkUsername($_SESSION['username']);
+		$user->getBlog()->removeBlogentryByIndex($_GET['deleteblogentry']);
+		$storage->saveStorage('data/storage.txt');
+		$blogs = array($user->getBlog());			
+	}
+	if(array_key_exists("editsend", $_POST) && isset($_SESSION['username'])){
+		$user = $storage->checkUsername($_SESSION['username']);
+		$blogentry = $user->getBlog()->getBlogentryByIndex($_POST['editsend']);
+		$blogentry->setTitle($_POST['blogtitle']);
+		$blogentry->setText($_POST['blogtext']);
+		$storage->saveStorage('data/storage.txt');
 	}
 
 
 	$tmp_blogs = $blogs;
+	$actual_user = $storage->checkUsername($_SESSION['username']);
+	$actual_user_blog = NULL;
+	if($actual_user){
+		$actual_user_blog = $actual_user->getBlog();
+	}
 	$tmp_content = 'templates/main.html.php';	
 	include('templates/layout.nav.html.php');
 }

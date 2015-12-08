@@ -18,22 +18,8 @@ if(!isset($_SESSION))
 
         <nav>
             <ul>
-                <li>Eigene Blogs</li>
-                 <li><a href="blogoverview.php">Alle Blogs</a></li>
-                <?php
-                    include_once('core/storage.php');
-                    include_once('core/user.php');
-                    include_once('core/blog.php');
-                    $storage = new Storage();
-                    $storage->loadStorage('data/storage.txt');
-                    $index = 0;
-                   // print_r($storage->getAllBlogs());
-                    foreach ($storage->getAllBlogs() as $blog){
-                        //echo(gettype($blog));
-                       echo "<li><a href='main.php?blog=".$index."'>".$blog->getTitle()."</a></li>";
-                      $index = $index +1;
-                    }
-                ?>
+                <li><a href="main.php?overview=true">Alle Blogs</a></li>
+                <li><a href="main.php?userblog=true">Eigener Blog</a></li>
                 <li><a href="createblog.php">Blog erstellen</a></li>
                 <li><a href="login.php?logout=true">Abmelden</a></li>
             </ul>
