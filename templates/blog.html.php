@@ -1,3 +1,5 @@
+<!-- Hier wird ein Template erstellt und mit der Methode Post definiert.
+     Dieses Template wird später in einer PHP Datei eingebunden. -->
 <h1>Blog erstellen</h1>
 <form  action="../createblog.php" method="post">
   <table>

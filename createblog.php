@@ -1,14 +1,22 @@
 <?php
+//Es wird überprüft ob die Session aktiv ist oder nicht, falls diese nicht Aktiv ist,
+//wird eine Session gestartet.
 if(!isset($_SESSION))
 {
 	session_start();
 }
 if (isset($_SESSION['username'])){
+	//Hier wird der Storage eingebunden damit ich die getters und setters benutzen kann.
 	include('core/storage.php');
+	//Hier wird der User eingebunden damit ich die getters und setters benutzen kann.
 	include('core/user.php');
+	//Hier wird der Blog eingebunden damit ich die getters und setters benutzen kann.
 	include('core/blog.php');
+	//Hier werden die Blogeinträge eingebunden damit ich die getters und setters benutzen kann.
 	include('core/blogEntry.php');
+	//Es wird ein neues Storage Objekt erstellt und diese wird dann in nie Variable $newstorage geschrieben.
 	$newstorage = new Storage();
+	//Der Storage wird hier geladen.
 	$newstorage->loadStorage('data/storage.txt');
 	$user = $newstorage->checkUsername($_SESSION['username']);
 
@@ -18,6 +26,7 @@ if (isset($_SESSION['username'])){
 			
 		
 		$newblog = new Blog();
+		// Hier wird der Titel des neuen Blogs gesetzt
 		$newblog->setTitle($_POST["blogname"]);
 		print(count($newstorage->getAllUsers()));
 		if ($user) {
@@ -39,6 +48,7 @@ if (isset($_SESSION['username'])){
 	}
 }
 else {
+	//Es wird auf das Login.php falls keine Session aktiv ist.
 	header('Location: login.php');	
 }
 

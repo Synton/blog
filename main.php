@@ -1,4 +1,6 @@
 <?php
+//Es wird überprüft ob die Session aktiv ist oder nicht, falls diese nicht Aktiv ist,
+//wird eine Session gestartet.
 if(!isset($_SESSION))
 {
 	session_start();
@@ -69,10 +71,13 @@ if (isset($_SESSION['username'])){
 	if($actual_user){
 		$actual_user_blog = $actual_user->getBlog();
 	}
-	$tmp_content = 'templates/main.html.php';	
+	$tmp_content = 'templates/main.html.php';
+
+	//Hier wird das Layout.nav.html.php eingebunden.	
 	include('templates/layout.nav.html.php');
 }
 else {
+	//Es wird auf das Login.php falls keine Session aktiv ist.
 	header('Location: login.php');	
 }
 ?>

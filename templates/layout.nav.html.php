@@ -1,4 +1,6 @@
 <?php 
+//Es wird überprüft ob die Session aktiv ist oder nicht, falls diese nicht Aktiv ist,
+//wird eine Session gestartet.
 if(!isset($_SESSION))
 {
     session_start();

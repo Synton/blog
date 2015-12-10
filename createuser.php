@@ -19,7 +19,7 @@ if ($user4 == false) {
 	$storage->addUser($user4);
 	$storage->saveStorage('data/storage.txt');
 }
-
+//Es wird auf das Login.php falls keine Session aktiv ist.
 header('Location: login.php');
 
 ?>
