@@ -10,7 +10,7 @@ if(!isset($_SESSION))
 <!-- Hier wird ein Template erstellt.
      Dieses Template wird später in einer PHP Datei eingebunden. -->
 <html>
-    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="static/styles.css" />
     <head>
         <title>Projektauftrag 2</title>
     </head>

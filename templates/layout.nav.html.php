@@ -8,7 +8,7 @@ if(!isset($_SESSION))
 ?>
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="static/styles.css" />
     <head>
         <title>Projektauftrag 2</title>
     </head>

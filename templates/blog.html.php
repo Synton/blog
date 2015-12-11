@@ -1,14 +1,14 @@
 <!-- Hier wird ein Template erstellt und mit der Methode Post definiert.
      Dieses Template wird später in einer PHP Datei eingebunden. -->
 <h1>Blog erstellen</h1>
-<form  action="../createblog.php" method="post">
+<form  action="createblog.php" method="post">
   <table>
     <tr>
       <td>
         <label for="blogname">Blog Titel: </label>
       </td>
       <td>
-        <input type="text" id="blogname" name="blogname" required pattern="[A-Z,a-z,0-9]{1,}">
+        <input type="text" id="blogname" name="blogname" required pattern="\S">
       </td>
     </tr>
     <tr>

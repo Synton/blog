@@ -16,12 +16,12 @@
                 <br>
                 <br> 
                 <form method="post" action="main.php" name="add_blogentry_form"> 
-                    <input type="text" name="title" id="title" placeholder="Titel" required pattern="[A-Z,a-z,0-9]{1,}"/>
+                    <input type="text" name="title" id="title" placeholder="Titel" required pattern="\S"/>
                     <br>
                     <br>  
 
 
-                    <textarea name="textarea_blogentry" required pattern="[A-Z,a-z,0-9]{1,}"> </textarea> 
+                    <textarea name="textarea_blogentry" required pattern="\S"> </textarea> 
                     <input id="submit"  type="submit" value="Senden" />
                 </form>                    
             <?php } ?>

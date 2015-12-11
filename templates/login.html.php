@@ -1,5 +1,5 @@
   
-  <form action="../login.php" method="post" name="formLogin"> 
+  <form action="login.php" method="post" name="formLogin"> 
     <table align="center" id="rcorners">
       <h3> Login </h3>
       <tbody>
