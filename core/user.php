@@ -20,7 +20,7 @@ class User
 
 	//Das Passwort des Users wird gesetzt.
 	public function setPassword($newpassword){
-		$this->password = $newpassword;
+		$this->password = md5($newpassword);
 	}
 
 	//Das Passwort des Users wird ausgelesen.

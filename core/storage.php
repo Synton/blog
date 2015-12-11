@@ -28,16 +28,19 @@ class Storage
 		return $blogs;		
 	}
 
-	//Hier wird der ganze Storage serialisiert, d.h. das Objekt wird als String
+	//Hier wird der ganze Storage serialisiert, d.h. ein Array von Objekten (sowie die Unterobjekte) wird als String
 	//in eine Datei geschrieben.
 	public function saveStorage($file){
 		$ser_storage = serialize($this->user);
 		file_put_contents($file, $ser_storage) or die("save: unable to open File");		
 	} 
 
-	//Hier wird der ganze Storage wider unserialisiert, d.h. das der String wird wider zum Objekt.
+	//Hier wird der ganze Storage wieder deserialisiert, d.h. das der String wird wieder zum Objekt.
+	//Falls die Datei nicht existiert wird dieser nicht deserialisiert. 
 	public function loadStorage($file){
-		$this->user = unserialize(file_get_contents($file));
+		if (file_exists($file)) {
+			$this->user = unserialize(file_get_contents($file));
+		}
 	}
 
 	public function getIndexByObject($blog){

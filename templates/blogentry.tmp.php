@@ -12,7 +12,7 @@
 		<p> <?php echo $blogentry->getText(); ?> </p>
 	<?php }?>
 	<?php if ($actual_user_blog != NULL && $actual_user_blog == $blog) { ?>
-		<span class="font_9"> gesendet am: <?php echo $blogentry->getCreated(); ?></span>
+		<span class="font_9"> erstellt am: <?php echo $blogentry->getCreated(); ?></span>
 		<input type="submit" name="blogedit" class="font_9" value="bearbeiten"/>
 		<?php echo "<a class='font_9' href='main.php?deleteblogentry=" . $count . "'>entfernen </a>" ?>
 	<?php } ?>

@@ -1,10 +1,11 @@
 <?php
+
+include("constants.php");
 //Es wird überprüft ob die Session aktiv ist oder nicht, falls diese nicht Aktiv ist,
 //wird eine Session gestartet.
 if(!isset($_SESSION))
 {
 	session_start();
-	print_r($_SESSION['username']);
 }
 if (isset($_SESSION['username'])){
 	include('core/storage.php');
@@ -15,7 +16,7 @@ if (isset($_SESSION['username'])){
 
 	$storage = new Storage();
 	
-	$storage->loadStorage('data/storage.txt');
+	$storage->loadStorage(STORAGE_FILE);
 
 	if (array_key_exists("textarea_blogentry", $_POST) && array_key_exists("title", $_POST)) {
 		if (isset($_SESSION['username'])) {
@@ -30,7 +31,7 @@ if (isset($_SESSION['username'])){
 			if ($user) {
 				$blog = $user->getBlog();
 				$blog->addBlogentry($blogentry);
-				$storage->saveStorage('data/storage.txt');
+				$storage->saveStorage(STORAGE_FILE);
 				header('Location: main.php?userblog=true');
 			}		
 		}
@@ -48,12 +49,18 @@ if (isset($_SESSION['username'])){
 	}
 	if(array_key_exists("userblog", $_GET) && $_GET['userblog'] == true && isset($_SESSION['username'])){
 		$user = $storage->checkUsername($_SESSION['username']);
+		if ($user->getBlog() == NULL) {
+			header('Location: createblog.php');
+		}
+		if(array_key_exists("exists", $_GET) && $_GET['exists'] == true){
+			$tmp_globalmessage[] = "Es existiert bereits ein Blog.";
+		}
 		$blogs = array($user->getBlog());			
 	}
 	if(array_key_exists("deleteblogentry", $_GET) && isset($_SESSION['username'])){
 		$user = $storage->checkUsername($_SESSION['username']);
 		$user->getBlog()->removeBlogentryByIndex($_GET['deleteblogentry']);
-		$storage->saveStorage('data/storage.txt');
+		$storage->saveStorage(STORAGE_FILE);
 		$blogs = array($user->getBlog());			
 	}
 	if(array_key_exists("editsend", $_POST) && isset($_SESSION['username'])){
@@ -61,7 +68,7 @@ if (isset($_SESSION['username'])){
 		$blogentry = $user->getBlog()->getBlogentryByIndex($_POST['editsend']);
 		$blogentry->setTitle($_POST['blogtitle']);
 		$blogentry->setText($_POST['blogtext']);
-		$storage->saveStorage('data/storage.txt');
+		$storage->saveStorage(STORAGE_FILE);
 	}
 
 

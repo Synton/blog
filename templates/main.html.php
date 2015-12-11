@@ -1,7 +1,7 @@
 <div align="center" id="rcorners">
     <section id="content">
-        <h2>Blog</h2>
         <?php foreach($tmp_blogs as $blog) { ?>
+         <h2><?php echo($blog->getTitle()); ?></h2>
             <article>
                 <?php
                     $count = 0;
@@ -16,12 +16,12 @@
                 <br>
                 <br> 
                 <form method="post" action="main.php" name="add_blogentry_form"> 
-                    <input type="text" name="title" id="title" placeholder="Titel"/>
+                    <input type="text" name="title" id="title" placeholder="Titel" required pattern="[A-Z,a-z,0-9]{1,}"/>
                     <br>
                     <br>  
 
 
-                    <textarea name="textarea_blogentry"> </textarea> 
+                    <textarea name="textarea_blogentry" required pattern="[A-Z,a-z,0-9]{1,}"> </textarea> 
                     <input id="submit"  type="submit" value="Senden" />
                 </form>                    
             <?php } ?>

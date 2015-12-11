@@ -5,6 +5,7 @@
       
       <tbody>
              <?php
+                    include("./constants.php");
                     //Hier wird der Storage eingebunden damit ich die getters und setters benutzen kann.
                     include_once('core/storage.php');
                     //Hier wird der User eingebunden damit ich die getters und setters benutzen kann.
@@ -14,7 +15,7 @@
                     //Hier wird das neue Objekt erstellt.
                     $storage = new Storage();
                     //Hier wird die Funktion von der Datei Storage.php aufgerufen, und ladet den Storage.
-                    $storage->loadStorage('data/storage.txt');
+                    $storage->loadStorage(STORAGE_FILE);
                     //In die Variable $index wird der Wert 0 hinzugefügt.
                     $index = 0;
                     //Es wird durch alle Blogs itteriert und jeder Blog wird als $blog definiert damit ich diese

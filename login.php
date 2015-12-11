@@ -1,5 +1,5 @@
 <?php
-
+include("constants.php");
 include_once('core/storage.php');
 include_once('core/user.php');
 $newstore = new Storage();
@@ -7,13 +7,13 @@ session_start();
 $tmp_globalmessage = array();
 
 if (array_key_exists("txtUser", $_POST)) {
-	$newstore->loadStorage('data/storage.txt');
+	$newstore->loadStorage(STORAGE_FILE);
 	$validateuser = $newstore->checkUsername($_POST["txtUser"]);
 	if ($validateuser == false) {
 		$tmp_globalmessage[] = "User exsistiert nicht"; 
 	}
 	else {
-		if ($validateuser->getPassword() == $_POST["txtPassword"]) {
+		if ($validateuser->getPassword() == md5($_POST["txtPassword"])) {
 			$_SESSION['username'] = $validateuser->getUsername();
 			header('Location: main.php?overview=true');
 		}

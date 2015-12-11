@@ -1,23 +1,23 @@
 <?php
-
+include("constants.php");
 include('core/storage.php');
 include('core/user.php');
 
 $storage = new Storage();
-$storage->loadStorage('data/storage.txt');
+$storage->loadStorage(STORAGE_FILE);
 echo count($storage->getAllUsers());
-$user4 = $storage->checkUsername($_POST["txtUser"]);
-if ($user4 == false) {
-	$user4 = new User();
+$user = $storage->checkUsername($_POST["txtUser"]);
+if ($user == false) {
+	$user = new User();
 
-	$user4->setUsername($_POST["txtUser"]);
-	$user4->setPassword($_POST["txtPassword"]);
-	$user4->setFirstname($_POST["txtVorname"]);
-	$user4->setLastname($_POST["txtNachname"]);
-	$user4->setStreet($_POST["txtStrasse"]);
-	$user4->setCity($_POST["txtPLZOrt"]);
-	$storage->addUser($user4);
-	$storage->saveStorage('data/storage.txt');
+	$user->setUsername($_POST["txtUser"]);
+	$user->setPassword($_POST["txtPassword"]);
+	$user->setFirstname($_POST["txtVorname"]);
+	$user->setLastname($_POST["txtNachname"]);
+	$user->setStreet($_POST["txtStrasse"]);
+	$user->setCity($_POST["txtPLZOrt"]);
+	$storage->addUser($user);
+	$storage->saveStorage(STORAGE_FILE);
 }
 //Es wird auf das Login.php falls keine Session aktiv ist.
 header('Location: login.php');

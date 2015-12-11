@@ -8,7 +8,7 @@
         <label for="blogname">Blog Titel: </label>
       </td>
       <td>
-        <input type="text" id="blogname" name="blogname">
+        <input type="text" id="blogname" name="blogname" required pattern="[A-Z,a-z,0-9]{1,}">
       </td>
     </tr>
     <tr>

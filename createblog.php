@@ -1,4 +1,6 @@
 <?php
+
+include("constants.php");
 //Es wird überprüft ob die Session aktiv ist oder nicht, falls diese nicht Aktiv ist,
 //wird eine Session gestartet.
 if(!isset($_SESSION))
@@ -17,7 +19,7 @@ if (isset($_SESSION['username'])){
 	//Es wird ein neues Storage Objekt erstellt und diese wird dann in nie Variable $newstorage geschrieben.
 	$newstorage = new Storage();
 	//Der Storage wird hier geladen.
-	$newstorage->loadStorage('data/storage.txt');
+	$newstorage->loadStorage(STORAGE_FILE);
 	$user = $newstorage->checkUsername($_SESSION['username']);
 
 	if (array_key_exists("blogname", $_POST)) {
@@ -31,7 +33,7 @@ if (isset($_SESSION['username'])){
 		print(count($newstorage->getAllUsers()));
 		if ($user) {
 			$user->addBlog($newblog);
-			$newstorage->saveStorage('data/storage.txt');
+			$newstorage->saveStorage(STORAGE_FILE);
 			header('Location: main.php?userblog=true');
 		}
 		else {
@@ -43,7 +45,10 @@ if (isset($_SESSION['username'])){
 			$tmp_content = 'templates/blog.html.php';
 		}
 		else{
-			header('Location: main.php?userblog=true');
+			
+			header('Location: main.php?userblog=true&exists=true');
+			//$tmp_globalmessage[] = "Es existiert bereits ein Blog.";
+
 		}
 	}
 }

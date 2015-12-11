@@ -4,7 +4,6 @@
 if(!isset($_SESSION))
 {
   session_start();
-  print_r($_SESSION['username']);
 }
 if (isset($_SESSION['username'])){
   include('core/storage.php');
