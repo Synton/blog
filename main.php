@@ -8,21 +8,26 @@ if(!isset($_SESSION))
 	session_start();
 }
 if (isset($_SESSION['username'])){
+	//Es wird der Storage eingebunden.
 	include('core/storage.php');
+	//Es wird der User eingebunden.
 	include('core/user.php');
+	//Es wird der Blog eingebunden.
 	include('core/blog.php');
+	//Es wird der Blogeintrag eingebunden.
 	include('core/blogEntry.php');
 
-
+	//Es wird ein neues Objekt Storage erstellt
 	$storage = new Storage();
 	
+	//Es wird der Storage geladen.
 	$storage->loadStorage(STORAGE_FILE);
 
 	if (array_key_exists("textarea_blogentry", $_POST) && array_key_exists("title", $_POST)) {
 		if (isset($_SESSION['username'])) {
 			$blogentry = new BlogEntry();
 			$blogentry->setTitle($_POST["title"]);
-
+			$blogentry->setCategory($_POST["dropdown"]);
 			$blogentry->setText($_POST["textarea_blogentry"]);
 			$timestamp = time();
 			$datum = date("d.m.Y G:i:s",$timestamp);
@@ -67,6 +72,7 @@ if (isset($_SESSION['username'])){
 		$user = $storage->checkUsername($_SESSION['username']);
 		$blogentry = $user->getBlog()->getBlogentryByIndex($_POST['editsend']);
 		$blogentry->setTitle($_POST['blogtitle']);
+		$blogentry->setCategory($_POST["dropdown"]);
 		$blogentry->setText($_POST['blogtext']);
 		$storage->saveStorage(STORAGE_FILE);
 	}

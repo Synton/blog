@@ -19,7 +19,7 @@
                     <td><input type="text" name="txtVorname" id="firstname" required/></td>
                 </tr>
                 <tr>
-                    <td>Strasse Nummer:</td>
+                    <td>Strasse:</td>
                     <td><input type="text" name="txtStrasse" id="street"/></td>
                 </tr>
                 <tr>

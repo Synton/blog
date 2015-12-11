@@ -21,12 +21,14 @@ if (isset($_SESSION['username'])){
 	//Der Storage wird hier geladen.
 	$newstorage->loadStorage(STORAGE_FILE);
 	$user = $newstorage->checkUsername($_SESSION['username']);
-
+	
+	//Prüft, ob blogname in dem $_POST Array existiert
 	if (array_key_exists("blogname", $_POST)) {
-
+		//falls dies Stimmt wird der Blogname  der in der Variable $_POST
+		//ist ausgegeben.
 		echo "blogname: " . $_POST["blogname"] . "<br/>";
 			
-		
+		//Es wird ein neues Blog Objekt erstellt und dieses wird dann in nie Variable $newblog geschrieben.
 		$newblog = new Blog();
 		// Hier wird der Titel des neuen Blogs gesetzt
 		$newblog->setTitle($_POST["blogname"]);

@@ -20,6 +20,7 @@ class Blog
 		$this->userid = $newuserid;
 	}
 	public function getUserid(){
+		//@return: es wird die Userid des Blogs zurückgegeben
 		return $this->userid;
 	}
 
@@ -27,6 +28,7 @@ class Blog
 		$this->title = $newtitle;
 	}
 	public function getTitle(){
+		//@return: es werden die Titel des Blogs zurückgegeben
 		return $this->title;
 	}
 
@@ -51,6 +53,8 @@ class Blog
 	*/
 	public function getBlogentryByIndex($index){
 		usort($this->blogentries, "sortByDate");
+		//@return: es werden die sortierten Blogeinträge zurück gegeben,
+		//der zu einem integer kontvertiert wird.
 		return $this->blogentries[intval($index)];
 
 	}
@@ -60,6 +64,7 @@ class Blog
 	public function getAllBlogentries(){
 
 		usort($this->blogentries, "sortByDate");
+		//@return: es werden die sortierten Blogeinträge zurück gegeben.
 		return $this->blogentries;
 	}
 }

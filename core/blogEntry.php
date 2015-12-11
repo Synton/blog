@@ -6,7 +6,7 @@ class BlogEntry
 
 
 {
-	private $text, $created, $userid, $title, $comments;
+	private $text, $created, $userid, $title, $comments, $category;
 	
 	public function getAll(){
 			 $this->text;
@@ -58,7 +58,17 @@ class BlogEntry
 
 	//Falls nötig kann ich mit dieser Funktion noch Kommentare auslesen.
 	public function getComments(){
-		return $comments->comments;
+		return $this->comments;
+	}
+
+	//Mit dieser Funktion kann man die Kategorie setzen.
+	public function setCategory($newcategory){
+		$this->category = $newcategory;
+	}
+
+	//Mit dieser Funktion kann man die Kategorie auslesen.
+	public function getCategory(){
+		return $this->category;
 	}
 }
 ?>
